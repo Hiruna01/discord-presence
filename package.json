@@ -1,0 +1,22 @@
+{
+  "name": "frame-youtube-presence",
+  "productName": "Frame",
+  "version": "1.0.0",
+  "private": true,
+  "description": "A quiet little home for your YouTube presence on Discord.",
+  "main": "app/main.cjs",
+  "author": "Frame",
+  "license": "MIT",
+  "scripts": {
+    "start": "electron .",
+    "test": "node --test tests/*.test.cjs",
+    "check": "node scripts/check.cjs",
+    "smoke": "electron . --smoke-test",
+    "assets": "python3 scripts/assets.py",
+    "build": "node scripts/build.cjs"
+  },
+  "devDependencies": {
+    "@electron/packager": "20.3.0",
+    "electron": "45.0.0"
+  }
+}

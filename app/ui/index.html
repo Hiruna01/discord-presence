@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' https://i.ytimg.com; style-src 'self'; script-src 'self'; connect-src 'none'; object-src 'none'; base-uri 'none'">
+  <title>Frame · YouTube on Discord</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="window-handle"></div>
+  <main>
+    <header class="app-header">
+      <div class="brand"><span class="brand-mark"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m9 6 10 6-10 6Z"/></svg></span><span>frame<span class="brand-period">.</span></span></div>
+      <button id="settings-button" class="icon-button" aria-label="Open settings" aria-expanded="false"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m9 3-.6 2.2-2 .9-2-.6-2 3.5 1.6 1.6v2.3L2.4 15l2 3.5 2-.6 2 .9L9 21h4l.6-2.2 2-.9 2 .6 2-3.5-1.6-1.6v-2.3L19.6 9l-2-3.5-2 .6-2-.9L13 3Z"/><circle cx="11" cy="12" r="3"/></svg></button>
+    </header>
+
+    <section id="home-view">
+      <div class="intro"><div class="eyebrow">YOUTUBE <span class="arrow">↗</span> DISCORD</div><h1>Your watch,<br>worth sharing<span>.</span></h1><p>A little window into what you’re into.</p></div>
+
+      <div class="sharing-row"><div><span class="sharing-title">Share activity</span><span id="sharing-description" class="subtext">Only while a video is playing</span></div><button id="sharing-toggle" class="toggle" role="switch" aria-label="Share activity" aria-checked="true"><span></span></button></div>
+
+      <section class="presence-card" aria-label="Discord presence preview">
+        <div class="card-label"><span class="live-dot" id="presence-dot"></span><span id="presence-label">YOUR DISCORD PRESENCE</span><span class="tiny-logo">✦</span></div>
+        <div id="artwork" class="artwork">
+          <img id="video-artwork" alt="Video thumbnail" hidden>
+          <div id="empty-artwork" class="empty-artwork"><div class="orbit orbit-one"></div><div class="orbit orbit-two"></div><div class="empty-play"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m9 6 10 6-10 6Z"/></svg></div><span>Your next rabbit hole awaits.</span></div>
+          <span id="video-badge" class="video-badge" hidden>WATCHING</span>
+        </div>
+        <div class="card-content"><div class="presence-heading">WATCHING <span>YOUTUBE</span></div><h2 id="video-title">Good videos. Good company.</h2><p id="video-channel">Play something you love. We’ll take it from here.</p><div id="playback" class="playback" hidden><div class="track"><div id="track-fill"></div></div><div class="timestamps"><span id="elapsed">0:00</span><span id="remaining">0:00 remaining</span></div></div><button id="watch-button" class="watch-button" hidden><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m9 6 10 6-10 6Z"/></svg>Watch on YouTube<span>↗</span></button></div>
+      </section>
+
+      <section id="setup" class="setup-section" aria-label="First-time setup">
+        <div class="section-heading"><span>A ONE-TIME HELLO</span><span id="setup-progress">0 / 2</span></div>
+        <details id="discord-step" class="setup-step" open><summary><span class="step-number" id="discord-step-number">1</span><span>Connect Discord<small id="discord-step-note">Add your Application ID</small></span><span class="chevron">⌄</span></summary><div class="step-body"><p>Create an application named <strong>YouTube</strong> in the <button id="portal-link" class="text-link">Discord Developer Portal ↗</button>. Copy its Application ID from General Information.</p><form id="client-form"><label class="sr-only" for="client-id">Discord Application ID</label><div class="input-row"><input id="client-id" inputmode="numeric" autocomplete="off" placeholder="Paste Application ID" maxlength="22"><button class="small-button" type="submit" id="save-client">Connect</button></div></form><p class="field-hint">Just the Application ID. No password or token needed.</p></div></details>
+        <details id="chrome-step" class="setup-step"><summary><span class="step-number" id="chrome-step-number">2</span><span>Add to Chrome<small id="chrome-step-note">Link the lightweight extension</small></span><span class="chevron">⌄</span></summary><div class="step-body"><ol><li><button id="extension-folder" class="text-link">Open extension folder ↗</button></li><li>Open <button id="copy-extensions" class="inline-code" title="Copy address">chrome://extensions</button> in Chrome. Enable <strong>Developer mode</strong>, then choose <strong>Load unpacked</strong> and select the extension folder.</li><li>Pin Frame in Chrome’s extensions menu. Open it and enter this pairing code:</li></ol><div class="pairing-row"><button id="pair-code" class="pair-code">Get pairing code</button><span id="code-note">Valid for 10 minutes</span></div><p class="field-hint">Refresh any YouTube tabs after installing.</p></div></details>
+      </section>
+      <div id="ready-hint" class="ready-hint" hidden><span>✦</span><div>Made for the background.<small>Close this window. Frame stays in your menu bar.</small></div><button id="open-youtube" class="icon-button" aria-label="Open YouTube">↗</button></div>
+    </section>
+
+    <section id="settings-view" hidden>
+      <button id="back-button" class="back-button">← Back</button><h1 class="settings-title">Make it yours<span>.</span></h1><p class="settings-subtitle">The small details, just how you like them.</p>
+      <div class="settings-group"><div class="setting"><div><label for="artwork-toggle">Video artwork</label><small>Show the thumbnail on your profile</small></div><button id="artwork-toggle" class="toggle" role="switch" aria-label="Video artwork" aria-checked="true"><span></span></button></div><div class="setting"><div><label for="button-toggle">Watch on YouTube</label><small>Give friends a link to your video</small></div><button id="button-toggle" class="toggle" role="switch" aria-label="Watch on YouTube button" aria-checked="true"><span></span></button></div><div class="setting"><div><label for="login-toggle">Start with your Mac</label><small>Ready whenever you are</small></div><button id="login-toggle" class="toggle" role="switch" aria-label="Start with your Mac" aria-checked="false"><span></span></button></div></div>
+      <div class="privacy-note"><span>◈</span><div>Your watch stays yours.<p>Frame only reads YouTube video details in regular Chrome windows. Sharing stops on pause, ads, or when a video closes. No watch history is saved.</p></div></div>
+      <button id="setup-again" class="secondary-button">Connection setup <span>↗</span></button><p class="settings-footnote">Discord desktop must be open, with activity sharing enabled in Discord’s Activity Privacy settings. Discord controls the final card layout. Your own profile may hide its link button.</p><p class="version">FRAME <span id="version">1.0.0</span> · A QUIETER KIND OF SOCIAL</p>
+    </section>
+
+    <div id="error" class="error-message" role="alert" hidden></div>
+    <footer><span class="connection"><span id="discord-dot" class="status-dot"></span><span id="discord-status">Discord</span></span><span class="connection"><span id="chrome-dot" class="status-dot"></span><span id="chrome-status">Chrome</span></span><span class="local-label">ALL LOCAL <span>◈</span></span></footer>
+  </main>
+  <div id="toast" class="toast" role="status" hidden></div>
+  <script src="renderer.js"></script>
+</body>
+</html>
